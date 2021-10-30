@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/tannerwj
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tannerwj.com
+  * I am tannerwj (https://keybase.io/tannerwj) on keybase.
+  * I have a public key with fingerprint 2D7A 9C56 7EA9 0CA2 BF8C  4DC9 BF2C 45E8 2055 5463
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101a78380cf63fff53cb66a9a372b832da4ba4e44a0e7a552673ac9213a2e86e3270a",
+            "fingerprint": "2d7a9c567ea90ca2bf8c4dc9bf2c45e820555463",
+            "host": "keybase.io",
+            "key_id": "bf2c45e820555463",
+            "kid": "0101a78380cf63fff53cb66a9a372b832da4ba4e44a0e7a552673ac9213a2e86e3270a",
+            "uid": "82f3c84a7832207fcca23f528b92cd19",
+            "username": "tannerwj"
+        },
+        "service": {
+            "hostname": "tannerwj.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1474706542,
+    "expire_in": 157680000,
+    "prev": "1e006185988d6cfd3cc8a6cb7f5951fca20c11536d9d648e6a5840513c5e830b",
+    "seqno": 10,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.56
+Comment: https://keybase.io/crypto
+
+yMInAnicrZJdSBVBGIaP9mMJofSfJ87FqhfJQXZnd2ZnLajooqiIwOL0R4fZ2Vld
+f3ZPe1YtSiGqGzNUisosI40yyCJBi8JKs9BSyoqCSiEqCyQiKZMupFmpm+iyuRnm
+m/d95v0+pnvWlEByQvjB4I9d8+vSEx51niwJRIaX2XsF3TH2CDl7hUI2ubEig8W9
+aKFlCDmCKIkSUbGMRWoi2TRNKFMdIaIRWQU6loFBFJ0oTFGIyFQCIUCqTKgGJJkA
+hhGTgSoSISyYlp3H3Jhr2R7HAkMlGoVIZUQTKQG6ialiUE03AVUgw0CEECpI5sZ8
+J+47eDidxFm25fAaP0Qn4/1D/59zl0ziMDBlihWfCICompRnlk0IsK4BakiaL4wz
+1ybFjKs9YtvMLSsQysMCr5ZalPmD9Tv5S5FNnWLujbmO51CniN/ke14snuM7vT0x
+X1rG9OhvSFS3bIPPkTtKmRu3HFvIkbiSepZPlRRVUUUEFRAW2O6Y5bKo5SugirDI
+l/8OK+VIiYkikjDUMDYQNQ2ZUkwQ1VUTalAyeW8ilSQoI0MzkIIZIhArIpRkykct
+i7rgt7XLdjibQz2Sx5lxK88mXonLhPKuuzumBhKSA9OnJfofLJA8M/XPt0M1SRNC
+X6wADI+uRS9Hf47Hvwx2JrQHN17oObp9Z3Bb88vqxKJToQXXm8DGlNpLVaUt1ZsG
+bgdPf5s5fUFl5uLIvebetLGsr+eCdR9mLArn9/V0fh7oL6zPzTqSPvz+gePW5B4K
+bW3bf/57X2PkyL62+jMh7Xko81pSYXduMHek4klTde+qOdF3WZ9Oje1vvtwlpb1Q
+jaFjjxv6n7VWLq1qPzDmlrUkr1j+dn1t6kjqwshQRkdDbctI64YKvbEjY96P3je3
+Xq+8n1Z3YnXEQ+MTIWvLYa3+aqzmY2bVRMbsgqeLrlzoAm+UV+vqRtdcrF12fO7q
+e6Nnlzxciu/cvNG3+O3Bzymb53X/AhsJRpI=
+=XOa5
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tannerwj
+
+==================================================================
