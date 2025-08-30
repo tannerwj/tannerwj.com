@@ -1,0 +1,23 @@
+{
+  "name": "tannerwj-com",
+  "version": "1.0.0",
+  "description": "Personal website for Tanner Johnson - Systems Architect & Programmer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "echo 'No build step required for static site'",
+    "preview": "wrangler dev --local"
+  },
+  "keywords": [
+    "personal-website",
+    "systems-architect",
+    "programmer",
+    "portfolio"
+  ],
+  "author": "Tanner Johnson",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
