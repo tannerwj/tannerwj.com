@@ -68,6 +68,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -77,6 +78,7 @@ a {
     letter-spacing: -0.02em;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
+    z-index: 1001;
 }
 
 .logo::after {
@@ -91,16 +93,57 @@ a {
     opacity: 0.7;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.hamburger:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Mobile Menu Active State */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 .nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
     color: #333;
     font-weight: 600;
     position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
 }
 
 .nav-links a::after {
@@ -114,8 +157,71 @@ a {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
     width: 100%;
+}
+
+/* Mobile Navigation Overlay */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.mobile-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.mobile-nav .nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex !important; /* Ensure mobile nav links are visible */
+}
+
+.mobile-nav .nav-links li {
+    list-style: none;
+    width: 100%;
+}
+
+.mobile-nav .nav-links a {
+    font-size: 1.2rem;
+    color: #333;
+    padding: 1rem 0;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.mobile-nav .nav-links a:hover {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+    transform: translateY(-2px);
 }
 
 /* Hero Section */
@@ -654,25 +760,56 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Mobile Navigation */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .navbar .container {
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    /* Mobile Layout Adjustments */
     .about .container {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
     }
 
     .profile-image {
         margin: 0 auto 2rem;
+        width: 250px;
+        height: 250px;
     }
 
     .project-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .wallet-addresses {
         flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .wallet-addresses div {
+        min-width: unset;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     .contact-form-container {
@@ -681,6 +818,17 @@ footer p {
 
     .referral-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .referral-category {
+        margin-bottom: 2rem;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     footer .container {
@@ -688,11 +836,108 @@ footer p {
         gap: 1rem;
     }
 
+    /* Typography Adjustments */
     h1 {
         font-size: 2.5rem;
     }
 
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
     .hero-content .tagline {
         font-size: 1.1rem;
+    }
+
+    .crypto-corner h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Container Adjustments */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Button Adjustments */
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    .referral-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    /* Social Icons */
+    .social-icons {
+        gap: 0.8rem;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* Form Adjustments */
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .contact-form button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content .tagline {
+        font-size: 1rem;
+    }
+
+    .crypto-corner h2 {
+        font-size: 2rem;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .skill-item {
+        padding: 1.5rem;
+    }
+
+    .skill-item i {
+        font-size: 2.5rem;
+    }
+
+    .referral-card {
+        padding: 1.2rem;
+    }
+
+    .referral-card img {
+        height: 150px;
     }
 }
