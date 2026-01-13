@@ -22,6 +22,7 @@ const sites = [
   { url: 'https://www.cookunity.com/', name: 'affiliate-cookunity.jpg', width: 1200, height: 900 },
   { url: 'https://www.eightsleep.com/', name: 'affiliate-eightsleep.jpg', width: 1200, height: 900 },
   { url: 'https://www.amazon.com/', name: 'affiliate-amazon.jpg', width: 1200, height: 900 },
+  { url: 'https://www.cloudways.com/', name: 'affiliate-cloudways.jpg', width: 1200, height: 900 },
 ];
 
 (async () => {
