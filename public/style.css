@@ -661,6 +661,9 @@ section:nth-child(even) {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .referral-card-link {
@@ -731,7 +734,7 @@ section:nth-child(even) {
     border-radius: 25px;
     font-weight: 600;
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: auto;
     transition: all 0.3s ease;
 }
 
