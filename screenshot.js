@@ -8,6 +8,7 @@ const sites = [
   { url: 'https://humlesssentinel.com/', name: 'project-humless.jpg', width: 1200, height: 750 },
   { url: 'https://lunch.tannerwj.com/', name: 'project-lunch.jpg', width: 1200, height: 750 },
   { url: 'https://mafia.tannerwj.com/', name: 'project-mafia.jpg', width: 1200, height: 750 },
+  { url: 'https://dnb.tannerwj.com/', name: 'project-dnb.jpg', width: 1200, height: 750 },
   
   // Affiliates (400x300 aspect)
   { url: 'https://www.coinbase.com/', name: 'affiliate-coinbase.jpg', width: 1200, height: 900 },
