@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,297 +7,140 @@
     <meta name="description" content="Systems Architect and InfoSec Expert specializing in secure system design, cryptocurrency, and innovative programming solutions.">
     <meta name="keywords" content="systems architect, cybersecurity, blockchain, programming, IT infrastructure, secure systems">
     <meta name="author" content="Tanner Johnson">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>TJ</text></svg>">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
-<body id="top">
+<body>
     <nav class="navbar">
         <div class="container">
-            <a href="#top" class="logo-link"><h1 class="logo">Tanner Johnson</h1></a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span class="icon">🌙</span>
-            </button>
+            <a href="/" class="logo">Tanner Johnson</a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#referrals">Referrals</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/links">Links</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Mobile Navigation Overlay -->
-    <div class="nav-overlay">
-        <div class="mobile-nav">
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#referrals">Referrals</a></li>
-            </ul>
-        </div>
-    </div>
-    <header id="hero">
-        <div class="hero-content">
+    <header class="hero">
+        <div class="container">
             <h1>Tanner Johnson</h1>
-            <p class="tagline">Systems Architect | InfoSec Expert | Vibe Coder</p>
-            <a href="#projects" class="cta-button">View My Projects</a>
+            <p class="tagline">Systems Architect & Programmer</p>
+            <p class="subtagline">Building secure, scalable systems. Exploring crypto, AI, and the future of tech.</p>
         </div>
     </header>
 
     <main>
-        <section id="about" class="about">
+        <section class="featured">
             <div class="container">
-                <div class="profile-image">
-                    <img src="https://avatars.githubusercontent.com/u/3155738" alt="Profile Photo">
+                <h2>Featured Projects</h2>
+                <div class="project-grid">
+                    <a href="https://sweats.lol" class="project-card" target="_blank">
+                        <div class="project-icon">💪</div>
+                        <h3>Sweats.lol</h3>
+                        <p>Fitness motivation and workout tracking for teams. Compete, track progress, and stay accountable.</p>
+                        <span class="project-link">Visit Site →</span>
+                    </a>
+                    <a href="https://dnb.tannerwj.com" class="project-card" target="_blank">
+                        <div class="project-icon">🧠</div>
+                        <h3>Dual n-Back Trainer</h3>
+                        <p>Cognitive training game to improve working memory and focus. Challenge your brain daily.</p>
+                        <span class="project-link">Train Your Brain →</span>
+                    </a>
+                    <a href="https://quantum.tannerwj.com" class="project-card" target="_blank">
+                        <div class="project-icon">⚛️</div>
+                        <h3>Quantum Explorer</h3>
+                        <p>Quantum computing exploration and resources. Learn about the next frontier in computation.</p>
+                        <span class="project-link">Explore →</span>
+                    </a>
+                    <a href="https://learn.tannerwj.com" class="project-card" target="_blank">
+                        <div class="project-icon">📚</div>
+                        <h3>Learn</h3>
+                        <p>AI-powered personal knowledge base built from Twitter bookmarks. Turn threads into insights.</p>
+                        <span class="project-link">Start Learning →</span>
+                    </a>
                 </div>
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>I'm Tanner, I'm not a developer, but now that I can vibe code I had no excuse to not make this site. I work in IT as a Systems Architect - I design robust, scalable, and secure systems, and enjoy automation, scripting, and crypto projects in my spare time.</p>
-                    <p>When I'm not architecting systems, you can find me reading, gardening, playing piano, shooting hoops on the basketball court, working out, or enjoying movies and video games.</p>
+                <div class="section-cta">
+                    <a href="/projects" class="cta-button">View All Projects</a>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2>Projects I've Built</h2>
-                <div class="project-grid">
-                    <a href="https://handlaundry.com/" target="_blank" class="project-card-link">
-                        <div class="project-card">
-                            <img src="images/project-handlaundry.jpg" alt="Hand Laundry Blog">
-                            <h3>Hand Laundry</h3>
-                            <p>A comprehensive guide to hand washing clothes, including techniques, benefits, and tips for eco-friendly laundry.</p>
-                            <span class="project-link">View Site →</span>
-                        </div>
-                    </a>
-                    <a href="https://humlesssentinel.com/" target="_blank" class="project-card-link">
-                        <div class="project-card">
-                            <img src="images/project-humless.jpg" alt="Humless Sentinel Review">
-                            <h3>Humless Sentinel</h3>
-                            <p>An in-depth review of the Humless Go Mini portable solar generator, highlighting its LiFePO4 battery and pure sine wave inverter for emergency preparedness.</p>
-                            <span class="project-link">View Site →</span>
-                        </div>
-                    </a>
-                    <a href="https://lunch.tannerwj.com/" target="_blank" class="project-card-link">
-                        <div class="project-card">
-                            <img src="images/project-lunch.jpg" alt="Lunch Picker App">
-                            <h3>Lunch Picker</h3>
-                            <p>A fun web app to help decide on lunch options, perfect for breaking decision fatigue with a simple, interactive interface.</p>
-                            <span class="project-link">View Site →</span>
-                        </div>
-                    </a>
-                    <a href="https://mafia.tannerwj.com/" target="_blank" class="project-card-link">
-                        <div class="project-card">
-                            <img src="images/project-mafia.jpg" alt="Mafia Game Web App">
-                            <h3>Mafia Game</h3>
-                            <p>An online multiplayer Mafia game where players can create or join rooms for strategic role-playing and social deduction fun.</p>
-                            <span class="project-link">View Site →</span>
-                        </div>
-                    </a>
-                    <a href="https://dnb.tannerwj.com/" target="_blank" class="project-card-link">
-                        <div class="project-card">
-                            <img src="images/project-dnb.jpg" alt="Dual n-Back Trainer">
-                            <h3>Dual n-Back Trainer</h3>
-                            <p>A cognitive training game to improve working memory and focus. Challenge yourself by remembering positions and sounds from N steps back.</p>
-                            <span class="project-link">View Site →</span>
-                        </div>
-                    </a>
-                    <a href="https://ascii-waves.tannerwj.com/" target="_blank" class="project-card-link">
-                        <div class="project-card">
-                            <img src="images/project-ascii-waves.jpg" alt="ASCII Waves">
-                            <h3>ASCII Waves</h3>
-                            <p>Mesmerizing animated ocean waves rendered entirely in ASCII art. Features customizable wave physics, color presets, and export capabilities.</p>
-                            <span class="project-link">View Site →</span>
-                        </div>
-                    </a>
-                </div>
-        </section>
-
-        <section id="skills" class="skills">
+        <section class="skills">
             <div class="container">
                 <h2>Skills & Expertise</h2>
                 <div class="skills-grid">
                     <div class="skill-item">
                         <i class="fas fa-sitemap"></i>
-                        <h3>Systems Architecture & Design</h3>
-                        <p>Designing robust, scalable, and secure system architectures that power modern enterprises. From infrastructure planning to implementation, I create solutions that scale and perform.</p>
+                        <h3>Systems Architecture</h3>
+                        <p>Designing robust, scalable, and secure system architectures that power modern enterprises.</p>
                     </div>
                     <div class="skill-item">
                         <i class="fab fa-bitcoin"></i>
                         <h3>Crypto & Blockchain</h3>
-                        <p>Deep expertise in cryptocurrency ecosystems, DeFi protocols, and blockchain technology. Building secure, decentralized solutions for the future of finance.</p>
+                        <p>Deep expertise in cryptocurrency ecosystems, DeFi protocols, and blockchain technology.</p>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-shield-alt"></i>
                         <h3>Cybersecurity</h3>
-                        <p>Expert in cybersecurity practices, threat analysis, and secure system design. Protecting digital assets through comprehensive security strategies and proactive defense measures.</p>
+                        <p>Expert in threat analysis and secure system design. Protecting digital assets proactively.</p>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-brain"></i>
-                        <h3>Problem Solving & Innovation</h3>
-                        <p>Analytical thinking combined with creative problem-solving to tackle complex challenges. Turning obstacles into opportunities through innovative solutions.</p>
+                        <h3>Problem Solving</h3>
+                        <p>Analytical thinking combined with creative solutions to tackle complex challenges.</p>
                     </div>
                 </div>
+            </div>
         </section>
 
-
-
-
-
-        <section id="referrals" class="referrals">
+        <section class="affiliates">
             <div class="container">
-                <h2>Referral Links</h2>
-                <p class="disclosure">* Affiliate links may earn commissions at no extra cost to you.</p>
-
-                <div class="referral-category">
-                    <h3 class="category-title">💰 Finance & Investing</h3>
-                    <div class="referral-grid">
-                        <a href="https://advanced.coinbase.com/join/AQ6U5AX" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-coinbase.jpg" alt="Coinbase">
-                                <h3>Coinbase</h3>
-                                <p class="description">The most trusted cryptocurrency exchange. Buy, sell, and manage Bitcoin, Ethereum, and 100+ other cryptocurrencies.</p>
-                                <p class="benefit">Earn up to $50 in free crypto when you sign up.</p>
-                                <span class="referral-button">Get Free Crypto</span>
-                            </div>
-                        </a>
-                        <a href="https://join.robinhood.com/tannerj82" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-robinhood.jpg" alt="Robinhood">
-                                <h3>Robinhood</h3>
-                                <p class="description">Commission-free stock trading platform. Trade stocks, options, crypto, and more with an intuitive mobile app.</p>
-                                <p class="benefit">Get a free stock when you sign up with my referral link.</p>
-                                <span class="referral-button">Get Free Stock</span>
-                            </div>
-                        </a>
-                        <a href="https://www.sofi.com/invite/money?gcp=deb88fc1-cea1-44a6-b72c-b46b1d2ac452&isAliasGcp=false" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-sofi.jpg" alt="SoFi">
-                                <h3>SoFi</h3>
-                                <p class="description">All-in-one financial platform offering banking, loans, investing, credit cards, and mortgages with competitive rates.</p>
-                                <p class="benefit">Get $25 when you sign up with my referral link.</p>
-                                <span class="referral-button">Get $25</span>
-                            </div>
-                        </a>
-                        <a href="https://www.monarchmoney.com/referral/ivsp5xwtxi?r_source=copy" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-monarch.jpg" alt="Monarch Money">
-                                <h3>Monarch Money</h3>
-                                <p class="description">A premium budgeting app to master your finances with style. Sync all accounts in one place.</p>
-                                <p class="benefit">Get 50% off your first year with my link.</p>
-                                <span class="referral-button">Get It Here</span>
-                            </div>
-                        </a>
-                    </div>
+                <h2>Affiliate Partners</h2>
+                <p class="disclosure">Links may earn commissions at no extra cost to you.</p>
+                <div class="affiliate-grid">
+                    <a href="https://advanced.coinbase.com/join/AQ6U5AX" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-coinbase.jpg" alt="Coinbase">
+                        <span class="affiliate-name">Coinbase</span>
+                    </a>
+                    <a href="https://join.robinhood.com/tannerj82" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-robinhood.jpg" alt="Robinhood">
+                        <span class="affiliate-name">Robinhood</span>
+                    </a>
+                    <a href="https://www.sofi.com/invite/money?gcp=deb88fc1-cea1-44a6-b72c-b46b1d2ac452" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-sofi.jpg" alt="SoFi">
+                        <span class="affiliate-name">SoFi</span>
+                    </a>
+                    <a href="https://www.monarchmoney.com/referral/ivsp5xwtxi" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-monarch.jpg" alt="Monarch Money">
+                        <span class="affiliate-name">Monarch</span>
+                    </a>
+                    <a href="https://pr.tn/ref/V4QXD5VE4SX0" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-proton.jpg" alt="Proton Mail">
+                        <span class="affiliate-name">Proton</span>
+                    </a>
+                    <a href="https://app.privacy.com/join/NXRQB" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-privacy.jpg" alt="Privacy.com">
+                        <span class="affiliate-name">Privacy</span>
+                    </a>
+                    <a href="https://www.starlink.com/residential?referral=RC-2421177-16688-68" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-starlink.jpg" alt="Starlink">
+                        <span class="affiliate-name">Starlink</span>
+                    </a>
+                    <a href="https://refer.eight.sl/tanner85" class="affiliate-card" target="_blank" rel="nofollow">
+                        <img src="images/affiliate-eightsleep.jpg" alt="Eight Sleep">
+                        <span class="affiliate-name">Eight Sleep</span>
+                    </a>
                 </div>
-
-                <div class="referral-category">
-                    <h3 class="category-title">🔒 Privacy & Security</h3>
-                    <div class="referral-grid">
-                        <a href="https://pr.tn/ref/V4QXD5VE4SX0" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-proton.jpg" alt="Proton Mail">
-                                <h3>Proton Mail</h3>
-                                <p class="description">Secure, private email from Switzerland that keeps your data yours. End-to-end encryption and zero ads.</p>
-                                <p class="benefit">Get a free month of Mail Plus with my link.</p>
-                                <span class="referral-button">Get It Here</span>
-                            </div>
-                        </a>
-                        <a href="https://app.privacy.com/join/NXRQB" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-privacy.jpg" alt="Privacy.com">
-                                <h3>Privacy.com</h3>
-                                <p class="description">Virtual cards that protect your payments. Create unique card numbers for online purchases to prevent fraud and data breaches.</p>
-                                <p class="benefit">Get your first month of Privacy Plus free with my referral link.</p>
-                                <span class="referral-button">Protect Your Payments</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="referral-category">
-                    <h3 class="category-title">⚡ Utilities & Services</h3>
-                    <div class="referral-grid">
-                        <a href="https://www.starlink.com/residential?referral=RC-2421177-16688-68" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-starlink.jpg" alt="Starlink">
-                                <h3>Starlink</h3>
-                                <p class="description">High-speed internet from space, anywhere on Earth. Reliable connectivity for remote areas.</p>
-                                <p class="benefit">Get exclusive discounts on Starlink equipment and service through my referral link.</p>
-                                <span class="referral-button">Get It Here</span>
-                            </div>
-                        </a>
-                        <a href="https://share.litter-robot.com/x/VEoAQZ" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-litterrobot.jpg" alt="Litter Robot">
-                                <h3>Litter Robot</h3>
-                                <p class="description">The self-cleaning litter box that frees you from scooping. Smart, odor-free, and convenient.</p>
-                                <p class="benefit">Save $50 on your Litter Robot with my link.</p>
-                                <span class="referral-button">Get Deal</span>
-                            </div>
-                        </a>
-                        <a href="https://www.cloudways.com/en/?id=1827700" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-cloudways.jpg" alt="Cloudways">
-                                <h3>Cloudways</h3>
-                                <p class="description">Managed cloud hosting made easy. Deploy WordPress, PHP apps, or any VPS in minutes with top cloud providers like AWS, Google Cloud, and DigitalOcean.</p>
-                                <p class="benefit">Get started with hassle-free managed hosting through my link.</p>
-                                <span class="referral-button">Get Started</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="referral-category">
-                    <h3 class="category-title">🏠 Lifestyle</h3>
-                    <div class="referral-grid">
-                        <a href="http://ts.la/tanner57678" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-tesla.jpg" alt="Tesla">
-                                <h3>Tesla</h3>
-                                <p class="description">Drive the future with cutting-edge electric vehicles. Sustainable, high-performance cars.</p>
-                                <p class="benefit">Get exclusive rewards when you purchase through my referral link.</p>
-                                <span class="referral-button">Get It Here</span>
-                            </div>
-                        </a>
-                        <a href="https://www.cookunity.com/referral?utm_campaign=tannjoh015&utm_source=referral" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-cookunity.jpg" alt="CookUnity">
-                                <h3>CookUnity</h3>
-                                <p class="description">Chef-prepared meal delivery service. Fresh, seasonal meals from award-winning chefs delivered to your door.</p>
-                                <p class="benefit">Get $50 off your first order when you use my referral link.</p>
-                                <span class="referral-button">Get $50 Off</span>
-                            </div>
-                        </a>
-                        <a href="https://refer.eight.sl/tanner85" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-eightsleep.jpg" alt="Eight Sleep">
-                                <h3>Eight Sleep</h3>
-                                <p class="description">Smart mattress covers that track sleep, adjust temperature, and optimize your rest for better health and performance.</p>
-                                <p class="benefit">Save up to $700 depending on what you order with my referral link.</p>
-                                <span class="referral-button">Save Up To $700</span>
-                            </div>
-                        </a>
-                        <a href="https://amzn.to/4aQPG8G" class="referral-card-link" target="_blank" rel="nofollow">
-                            <div class="referral-card">
-                                <img src="images/affiliate-amazon.jpg" alt="Amazon">
-                                <h3>Amazon</h3>
-                                <p class="description">The everything store. Shop millions of products with fast delivery and great prices.</p>
-                                <p class="benefit">Support my site at no extra cost when you shop through my link.</p>
-                                <span class="referral-button">Shop Now</span>
-                            </div>
-                        </a>
-                    </div>
+                <div class="section-cta">
+                    <a href="/links" class="cta-button secondary">View All Links</a>
                 </div>
             </div>
         </section>
@@ -306,18 +148,18 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Tanner Johnson</p>
-            <div class="social-icons">
-                <a href="https://x.com/tannerwj" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/tannerwj/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/tannerwj" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://goodreads.com/tannerwj" class="social-icon" target="_blank"><i class="fab fa-goodreads"></i></a>
-                <a href="bitcoin:1tannERvhK55jqoHhaydEbkc6rdo6iJ2i" class="social-icon crypto-donation" title="BTC Donations"><i class="fab fa-bitcoin"></i></a>
+            <div class="footer-content">
+                <p>&copy; 2025 Tanner Johnson</p>
+                <div class="social-links">
+                    <a href="https://x.com/tannerwj" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/tannerwj/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/tannerwj" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://goodreads.com/tannerwj" target="_blank"><i class="fab fa-goodreads"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
