@@ -91,7 +91,6 @@ export const projects: Project[] = [
       "A deadpan-serious observatory for filing triangles between real stars. Real ephemerides, Latin names, a persistent registry.",
     category: "experiment",
     tags: ["Astronomy", "Fun"],
-    featured: true,
     status: "live",
     cover: "/covers/triangulum.webp",
   },
@@ -142,9 +141,10 @@ export const projects: Project[] = [
   {
     name: "Health",
     url: "https://health.tannerwj.com",
-    description: "A personal health dashboard.",
+    description: "Personal health, training, and peptide notes.",
     category: "tool",
     tags: ["Health"],
+    featured: true,
     status: "live",
   },
 

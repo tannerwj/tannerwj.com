@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import { socials } from "../data/links";
+
+const aboutSocials = socials.filter((s) => s.name !== "Goodreads");
 ---
 
 <Base
@@ -22,24 +24,12 @@ import { socials } from "../data/links";
         <p>
           My main thing is <strong>large-scale security, architecture, and AI
           orchestration</strong> — designing systems that hold up for humans
-          and agents alike. The goal is always the same: software that feels
-          instant and stays out of the way.
+          and agents alike.
         </p>
         <p>
           The smaller stuff — a trading game, a daily comic, a deadpan-serious
           star observatory — are one-off side quests. If an idea is interesting,
-          it gets built: most of my projects go from thought to live URL fast.
-        </p>
-        <p>
-          My day-to-day is <strong>AI-assisted building</strong>: I work with
-          agents as collaborators, ship with real test suites, and keep
-          everything running on boring, reliable infrastructure. The goal is
-          always the same — software that feels instant and stays out of the way.
-        </p>
-        <p>
-          When I'm not shipping, I'm reading (usually something about to become
-          a movie), staying sharp, or finding the next absurd idea
-          worth a subdomain.
+          it gets built.
         </p>
         <p style="margin-top: 2rem">
           <a class="btn btn-primary" href="/projects">See the work →</a>
@@ -51,9 +41,8 @@ import { socials } from "../data/links";
           <li><span class="k">Name</span><span class="v">Tanner Johnson</span></li>
           <li><span class="k">Based in</span><span class="v">Utah, USA</span></li>
           <li><span class="k">Role</span><span class="v">Principal Engineer</span></li>
-          <li><span class="k">Approach</span><span class="v">Adapt the tech to the project</span></li>
           <li><span class="k">Projects</span><span class="v"><a class="text-link" href="/projects">24 and counting →</a></span></li>
-          {socials.map((s) => (
+          {aboutSocials.map((s) => (
             <li><span class="k">{s.name}</span><span class="v"><a class="text-link" href={s.url} target="_blank" rel="noopener">{s.handle} ↗</a></span></li>
           ))}
         </ul>
