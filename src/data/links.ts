@@ -70,6 +70,7 @@ export const linkGroups: LinkGroup[] = [
         name: "Starlink",
         url: "https://www.starlink.com/residential?referral=RC-2421177-16688-68",
         blurb: "High-speed satellite internet anywhere. Reliable connectivity for remote areas.",
+        perk: "Get a free month of service",
       },
       {
         name: "Litter Robot",
@@ -81,11 +82,13 @@ export const linkGroups: LinkGroup[] = [
         name: "Cloudways",
         url: "https://www.cloudways.com/en/?id=1827700",
         blurb: "Managed cloud hosting. Deploy WordPress or PHP apps in minutes on AWS, Google Cloud, or DigitalOcean.",
+        perk: "Get $25 in hosting credit",
       },
       {
         name: "Wispr Flow",
         url: "https://wisprflow.ai/r/TANNER111",
         blurb: "Voice-to-text AI that writes as you speak. Dictate anywhere on your Mac with natural, accurate transcription.",
+        perk: "Get a free month of Pro",
       },
     ],
   },
@@ -96,6 +99,7 @@ export const linkGroups: LinkGroup[] = [
         name: "Function Health",
         url: "https://my.functionhealth.com/signup?code=TJOHNSON58&_saasquatch=TJOHNSON58&d=FHREF25",
         blurb: "160+ lab tests with insights from top doctors. Comprehensive health monitoring to catch issues early.",
+        perk: "Get $25 off your first year",
       },
     ],
   },
@@ -106,7 +110,7 @@ export const linkGroups: LinkGroup[] = [
         name: "Tesla",
         url: "http://ts.la/tanner57678",
         blurb: "Electric vehicles and sustainable energy.",
-        perk: "Exclusive rewards when purchasing through referral",
+        perk: "Get 3 months of free Full Self-Driving",
       },
       {
         name: "CookUnity",

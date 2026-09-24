@@ -2,10 +2,10 @@ export const site = {
   name: "Tanner Johnson",
   domain: "tannerwj.com",
   url: "https://tannerwj.com",
-  title: "Tanner Johnson — Systems Architect & Vibe Coder",
+  title: "Tanner Johnson — Principal Engineer",
   description:
-    "Tanner Johnson builds secure, scalable systems for humans and agents — AI apps, trading toys, dev tools, and experiments. Based in Utah.",
-  role: "Systems Architect & Vibe Coder",
+    "Tanner Johnson is a principal engineer in Utah, focused on large-scale security, architecture, and AI orchestration.",
+  role: "Principal Engineer",
   location: "Utah, USA",
   ogImage: "/og.png",
 };
