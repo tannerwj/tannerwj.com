@@ -34,7 +34,6 @@ export const GET: APIRoute = () => {
     "- Home: https://tannerwj.com/",
     "- About: https://tannerwj.com/about",
     "- Now (current focus): https://tannerwj.com/now",
-    "- Uses (tools + services + referral perks): https://tannerwj.com/uses",
     "- Links (link-in-bio): https://tannerwj.com/links",
     "",
     "## Projects",

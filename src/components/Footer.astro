@@ -1,5 +1,7 @@
 ---
 import { socials } from "../data/links";
+
+const footerSocials = socials.filter((s) => s.name !== "Goodreads");
 ---
 
 <footer class="site-footer">
@@ -11,12 +13,10 @@ import { socials } from "../data/links";
 
     <nav class="footer-links" aria-label="Footer">
       <a href="/projects">/projects</a>
-      <a href="/uses">/uses</a>
       <a href="/now">/now</a>
       <a href="/about">/about</a>
       <a href="/links">/links</a>
-      <a href="/llms.txt">/llms.txt</a>
-      {socials.map((s) => (
+      {footerSocials.map((s) => (
         <a href={s.url} target="_blank" rel="noopener">{s.name}</a>
       ))}
     </nav>

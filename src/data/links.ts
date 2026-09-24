@@ -1,5 +1,5 @@
 /**
- * Referral / affiliate links for /uses and /links.
+ * Referral / affiliate links for /links.
  * To add a link: append to the right group. Keep the real referral URL —
  * friends use /links as a link-in-bio page, so every URL here must work.
  */
