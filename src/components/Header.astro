@@ -1,0 +1,38 @@
+---
+import { nav } from "../data/site";
+
+const pathname = Astro.url.pathname;
+const current = nav.find((item) => item.href === pathname || (item.href !== "/" && pathname.startsWith(item.href + "/")))?.key
+  ?? (pathname === "/" ? "home" : "");
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="tannerwj.com home">
+      <span class="dot" aria-hidden="true"></span>
+      <span>tannerwj<span class="path">.com</span></span>
+    </a>
+
+    <button class="mobile-nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <nav class="main-nav" aria-label="Primary">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <button class="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+      <span class="moon" aria-hidden="true">◐</span>
+      <span class="sun" aria-hidden="true">◑</span>
+    </button>
+  </div>
+  <nav class="mobile-menu" aria-label="Mobile">
+    {nav.map((item) => (
+      <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
+        /{item.key}
+      </a>
+    ))}
+  </nav>
+</header>

@@ -1,0 +1,43 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  span?: string;
+  reveal?: boolean;
+  delay?: number;
+}
+
+const { project, span = "span-2", reveal = true, delay = 0 } = Astro.props;
+const host = project.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+const cls = `card ${span}${reveal ? " reveal" : ""}`;
+---
+
+<a
+  class={cls}
+  href={project.url}
+  target="_blank"
+  rel="noopener"
+  data-category={project.category}
+  data-delay={reveal ? String(delay) : undefined}
+>
+  {project.cover && (
+    <span class="cover" aria-hidden="true">
+      <img src={project.cover} alt="" loading="lazy" />
+    </span>
+  )}
+  <span class="card-body">
+    <span class="card-top">
+      <span class="tags">
+        {project.tags.slice(0, 3).map((t) => <span class="tag">{t}</span>)}
+      </span>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </span>
+    <h3>{project.name}</h3>
+    <p>{project.description}</p>
+    <span class="card-url">
+      <span class="status-dot" aria-hidden="true"></span>
+      {host}
+    </span>
+  </span>
+</a>

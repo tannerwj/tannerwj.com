@@ -1,0 +1,28 @@
+---
+import { socials } from "../data/links";
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>all systems operational · <span class="js-year">2026</span></span>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer">
+      <a href="/projects">/projects</a>
+      <a href="/uses">/uses</a>
+      <a href="/now">/now</a>
+      <a href="/about">/about</a>
+      <a href="/links">/links</a>
+      <a href="/llms.txt">/llms.txt</a>
+      {socials.map((s) => (
+        <a href={s.url} target="_blank" rel="noopener">{s.name}</a>
+      ))}
+    </nav>
+
+    <p class="footer-note">
+      © <span class="js-year">2026</span> Tanner Johnson · built with Astro, shipped on Cloudflare · no cookies, no tracking
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,171 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+import "../styles/global.css";
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/jetbrains-mono";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  noindex?: boolean;
+  ogImage?: string;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  path = "/",
+  noindex = false,
+  ogImage = site.ogImage,
+} = Astro.props;
+
+const canonical = new URL(path, site.url).href;
+const og = ogImage.startsWith("http") ? ogImage : new URL(ogImage, site.url).href;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: site.role,
+  address: { "@type": "PostalAddress", addressRegion: "UT", addressCountry: "US" },
+  sameAs: [
+    "https://github.com/tannerwj",
+    "https://x.com/tannerwj",
+    "https://www.linkedin.com/in/tannerwj/",
+    "https://goodreads.com/tannerwj",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="tannerwj.com" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@tannerwj" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+
+    <meta name="theme-color" content="#0c0c0e" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    <script is:inline>
+      // Apply saved theme before first paint — no flash, no reload.
+      try {
+        const saved = localStorage.getItem("tj-theme");
+        const theme = saved || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    </script>
+
+    <ClientRouter />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Runs on initial load and after every ClientRouter navigation.
+      function init() {
+        // Scroll reveals
+        const els = document.querySelectorAll(".reveal:not(.in)");
+        if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              for (const e of entries) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("in");
+                  io.unobserve(e.target);
+                }
+              }
+            },
+            { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+          );
+          els.forEach((el) => io.observe(el));
+        } else {
+          els.forEach((el) => el.classList.add("in"));
+        }
+
+        // Theme toggle — instant, no reload
+        document.querySelectorAll(".theme-toggle").forEach((btn) => {
+          if (btn.dataset.bound) return;
+          btn.dataset.bound = "1";
+          btn.addEventListener("click", () => {
+            const html = document.documentElement;
+            const next = html.getAttribute("data-theme") === "light" ? "dark" : "light";
+            html.setAttribute("data-theme", next);
+            try { localStorage.setItem("tj-theme", next); } catch (e) {}
+          });
+        });
+
+        // Mobile menu
+        const toggle = document.querySelector(".mobile-nav-toggle");
+        const menu = document.querySelector(".mobile-menu");
+        if (toggle && menu && !toggle.dataset.bound) {
+          toggle.dataset.bound = "1";
+          toggle.addEventListener("click", () => {
+            const open = menu.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", String(open));
+          });
+        }
+
+        // Project filters
+        document.querySelectorAll(".filters").forEach((bar) => {
+          if (bar.dataset.bound) return;
+          bar.dataset.bound = "1";
+          const buttons = Array.from(bar.querySelectorAll(".filter"));
+          const cards = Array.from(document.querySelectorAll("[data-category]"));
+          const count = document.querySelector(".filter-count");
+          buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+              btn.setAttribute("aria-pressed", "true");
+              const f = btn.getAttribute("data-filter");
+              let n = 0;
+              cards.forEach((card) => {
+                const show = f === "all" || card.getAttribute("data-category") === f;
+                card.style.display = show ? "" : "none";
+                if (show) n++;
+              });
+              if (count) count.textContent = `${n} project${n === 1 ? "" : "s"}`;
+            });
+          });
+        });
+
+        // Footer year
+        document.querySelectorAll(".js-year").forEach((el) => {
+          el.textContent = String(new Date().getFullYear());
+        });
+      }
+
+      document.addEventListener("astro:page-load", init);
+      init();
+    </script>
+  </body>
+</html>

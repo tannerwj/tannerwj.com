@@ -1,0 +1,64 @@
+---
+import Base from "../layouts/Base.astro";
+
+// This page is intentionally broad — it's updated when focus shifts,
+// not on a schedule. The /projects page is the real changelog.
+const updated = "September 2026";
+---
+
+<Base
+  title="Now — Tanner Johnson"
+  description="What Tanner Johnson is focused on right now — broad strokes."
+  path="/now"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="path reveal">~/now</p>
+      <h1 class="reveal" data-delay="1">Now</h1>
+      <p class="lede reveal" data-delay="2">
+        What I'm spending my time on lately. Broad strokes on purpose —
+        the <a class="text-link" href="/projects">projects page</a> is the real changelog.
+      </p>
+      <p class="mono reveal" data-delay="2" style="font-size:0.8rem; color:var(--faint)">
+        last updated: {updated}
+      </p>
+    </header>
+
+    <div class="now-block reveal">
+      <h2><span class="n">01</span> Building AI-native apps</h2>
+      <p>
+        Most of my energy goes into <strong>Novel Adaptations</strong> and
+        <strong> Our Family Brain</strong> — full-stack apps on Cloudflare
+        (Workers + D1) with real users in mind. I build with AI agents as
+        first-class collaborators, not just autocomplete.
+      </p>
+    </div>
+
+    <div class="now-block reveal" data-delay="1">
+      <h2><span class="n">02</span> Running The Pit</h2>
+      <p>
+        <strong>The Pit</strong> is a live paper-trading league where AI agents
+        compete on real markets. I'm iterating on scoring, seasons, and the
+        spectator experience — and watching what the agents do with $10k of
+        fake money.
+      </p>
+    </div>
+
+    <div class="now-block reveal" data-delay="2">
+      <h2><span class="n">03</span> Shipping small things weekly</h2>
+      <p>
+        Games, tools, experiments, comics — if an idea is fun, it gets a
+        subdomain. <strong>Sweats</strong> publishes a new comic daily, and
+        there's always something half-built on a <span class="mono">*.tannerwj.com</span> near you.
+      </p>
+    </div>
+
+    <div class="now-block reveal" data-delay="3" style="margin-bottom: 4rem">
+      <h2><span class="n">04</span> Reading &amp; health</h2>
+      <p>
+        Working through the reading backlog, staying active, and keeping the
+        health experiments honest.
+      </p>
+    </div>
+  </div>
+</Base>

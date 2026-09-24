@@ -1,0 +1,59 @@
+---
+import Base from "../layouts/Base.astro";
+import { socials } from "../data/links";
+---
+
+<Base
+  title="About — Tanner Johnson"
+  description="Tanner Johnson is a systems architect and vibe coder in Utah, building secure, scalable systems for humans and agents."
+  path="/about"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="path reveal">~/about</p>
+      <h1 class="reveal" data-delay="1">About</h1>
+    </header>
+
+    <div class="about-grid" style="padding-bottom: 4rem">
+      <div class="prose reveal" data-delay="2">
+        <p class="lede" style="color: var(--ink); margin-bottom: 1.5rem">
+          I'm Tanner — a systems architect and vibe coder in Utah.
+        </p>
+        <p>
+          I build <strong>secure, scalable systems for humans and agents</strong>:
+          full-stack apps on Cloudflare, trading toys, dev tools, games, comics,
+          and the occasional deadpan-serious star observatory. If an idea is
+          interesting, it gets built — most of my projects go from thought to
+          live URL fast.
+        </p>
+        <p>
+          My day-to-day is <strong>AI-assisted building</strong>: I work with
+          agents as collaborators, ship with real test suites, and keep
+          everything running on boring, reliable infrastructure. The goal is
+          always the same — software that feels instant and stays out of the way.
+        </p>
+        <p>
+          When I'm not shipping, I'm reading (usually something about to become
+          a movie), staying sharp, or finding the next absurd idea
+          worth a subdomain.
+        </p>
+        <p style="margin-top: 2rem">
+          <a class="btn btn-primary" href="/projects">See the work →</a>
+        </p>
+      </div>
+
+      <aside class="reveal" data-delay="3">
+        <ul class="fact-list">
+          <li><span class="k">Name</span><span class="v">Tanner Johnson</span></li>
+          <li><span class="k">Based in</span><span class="v">Utah, USA</span></li>
+          <li><span class="k">Role</span><span class="v">Systems Architect &amp; Vibe Coder</span></li>
+          <li><span class="k">Stack</span><span class="v">Cloudflare · Astro · React · Swift</span></li>
+          <li><span class="k">Projects</span><span class="v"><a class="text-link" href="/projects">24 and counting →</a></span></li>
+          {socials.map((s) => (
+            <li><span class="k">{s.name}</span><span class="v"><a class="text-link" href={s.url} target="_blank" rel="noopener">{s.handle} ↗</a></span></li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</Base>

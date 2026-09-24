@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects, CATEGORIES } from "../data/projects";
+---
+
+<Base
+  title="Projects — Tanner Johnson"
+  description="The full project index from Tanner Johnson: apps, tools, games, experiments, open source, and client work."
+  path="/projects"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="path reveal">~/projects</p>
+      <h1 class="reveal" data-delay="1">Projects</h1>
+      <p class="lede reveal" data-delay="2">
+        Everything I've shipped that's still alive on the internet.
+        Filter by category — new entries are a one-line data edit, so this stays current.
+      </p>
+    </header>
+
+    <div class="filters reveal" data-delay="2" role="group" aria-label="Filter projects">
+      {CATEGORIES.map((c) => (
+        <button
+          class="filter"
+          data-filter={c.id}
+          aria-pressed={c.id === "all" ? "true" : "false"}
+        >
+          {c.label}
+        </button>
+      ))}
+      <span class="filter-count mono" style="align-self:center; margin-left:auto; font-size:0.8rem; color:var(--faint)">
+        {projects.length} projects
+      </span>
+    </div>
+
+    <div class="grid" style="padding-bottom: 4rem">
+      {projects.map((p, i) => (
+        <ProjectCard project={p} span="" reveal={false} />
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .grid .card { grid-column: auto; }
+</style>

@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro";
+import { linkGroups } from "../data/links";
+---
+
+<Base
+  title="Uses — Tanner Johnson"
+  description="The stack, services, and gear Tanner Johnson actually uses — plus referral links that get you a perk."
+  path="/uses"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="path reveal">~/uses</p>
+      <h1 class="reveal" data-delay="1">Uses</h1>
+      <p class="lede reveal" data-delay="2">
+        The stack I build on, and the services I'd recommend to a friend —
+        these links are referrals, so we both get a perk.
+      </p>
+    </header>
+
+    <div class="now-block reveal" data-delay="2" style="margin-bottom: 3rem">
+      <h2><span class="n">~/</span> The stack</h2>
+      <p><strong>Runtime:</strong> Cloudflare Workers + D1 — everything I ship runs here.</p>
+      <p><strong>Frontend:</strong> Astro for static, React for apps. This site is Astro.</p>
+      <p><strong>Languages:</strong> TypeScript, Python, Swift.</p>
+      <p><strong>AI:</strong> Muse (obviously), MCP servers for everything.</p>
+      <p><strong>Dictation:</strong> Wispr Flow — most of my messages are spoken, not typed.</p>
+    </div>
+
+    {linkGroups.map((group, gi) => (
+      <section class="link-group reveal" aria-label={group.title}>
+        <h2>{group.title}</h2>
+        {group.items.map((item) => (
+          <a class="link-row" href={item.url} target="_blank" rel="noopener sponsored">
+            <span class="link-name">{item.name}</span>
+            <span class="link-blurb">{item.blurb}</span>
+            {item.perk && <span class="perk">{item.perk}</span>}
+            <span class="go" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </section>
+    ))}
+
+    <p class="mono reveal" style="font-size:0.78rem; color:var(--faint); padding-bottom:4rem">
+      // referral links support the site at no extra cost to you
+    </p>
+  </div>
+</Base>

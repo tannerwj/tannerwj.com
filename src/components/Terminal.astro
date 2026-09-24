@@ -1,0 +1,102 @@
+---
+// Interactive terminal easter egg. Type `help`.
+---
+
+<div class="terminal reveal" id="tj-terminal">
+  <div class="terminal-bar" aria-hidden="true">
+    <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+    <span class="t-title">tanner@tannerwj.com — zsh</span>
+  </div>
+  <div class="terminal-body" id="term-body" role="log" aria-label="Interactive terminal">
+    <p class="line"><span class="prompt">➜</span> <span class="dim">~</span> ./hello.sh</p>
+    <p class="line">you found the console. type <span class="ok">help</span> to poke around.</p>
+    <div class="terminal-input-row">
+      <span class="prompt" aria-hidden="true">➜</span>
+      <span class="dim" aria-hidden="true">~</span>
+      <input
+        class="terminal-input"
+        id="term-input"
+        type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Terminal input"
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  function initTerminal() {
+    const root = document.getElementById("tj-terminal");
+    const body = document.getElementById("term-body");
+    const input = document.getElementById("term-input");
+    if (!root || !body || !input || root.dataset.bound) return;
+    root.dataset.bound = "1";
+
+    const responses = {
+      help: [
+        "commands: whoami · projects · stack · now · theme · links · clear",
+        "easter eggs: 0",
+      ],
+      whoami: ["tanner johnson — systems architect & vibe coder.", "utah. ships weekly."],
+      projects: [
+        "flagships: noveladaptations.com · ourfamilybrain.com · pit.tannerwj.com · stars.tannerwj.com",
+        "full index → /projects",
+      ],
+      stack: ["cloudflare workers + d1 · astro · react · swift · python", "vibe-coded, battle-tested."],
+      now: ["building ai-native apps. running the pit. see /now for the rest."],
+      links: ["friends? → /links has everything. you're welcome."],
+      theme: ["theme toggled. you're welcome."],
+      sudo: ["nice try."],
+      hello: ["hey. 👋"],
+    };
+
+    function print(lines) {
+      for (const text of lines) {
+        const p = document.createElement("p");
+        p.className = "line";
+        p.textContent = text;
+        body.insertBefore(p, body.querySelector(".terminal-input-row"));
+      }
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function run(cmd) {
+      const clean = cmd.trim().toLowerCase();
+      const echo = document.createElement("p");
+      echo.className = "line";
+      const prompt = document.createElement("span");
+      prompt.className = "prompt";
+      prompt.textContent = "➜ ~ ";
+      echo.appendChild(prompt);
+      echo.appendChild(document.createTextNode(cmd));
+      body.insertBefore(echo, body.querySelector(".terminal-input-row"));
+
+      if (clean === "clear") {
+        body.querySelectorAll(".line").forEach((l) => l.remove());
+      } else if (clean === "theme") {
+        document.querySelector(".theme-toggle")?.dispatchEvent(new Event("click"));
+        print(responses.theme);
+      } else if (clean === "") {
+        // nothing
+      } else if (responses[clean]) {
+        print(responses[clean]);
+      } else {
+        print([`command not found: ${clean} — try 'help'`]);
+      }
+      body.scrollTop = body.scrollHeight;
+    }
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        run(input.value);
+        input.value = "";
+      }
+    });
+    root.addEventListener("click", () => input.focus());
+  }
+
+  document.addEventListener("astro:page-load", initTerminal);
+  initTerminal();
+</script>

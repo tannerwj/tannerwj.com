@@ -1,0 +1,68 @@
+---
+import Base from "../layouts/Base.astro";
+import { linkGroups, socials } from "../data/links";
+
+// Link-in-bio: the page friends get texted. Big tap targets, no clutter.
+---
+
+<Base
+  title="Links — Tanner Johnson"
+  description="All of Tanner Johnson's links in one place — projects, socials, and referral links."
+  path="/links"
+>
+  <div class="wrap" style="max-width: 720px">
+    <header class="page-head" style="text-align: center">
+      <p class="path reveal">~/links</p>
+      <h1 class="reveal" data-delay="1" style="font-size: clamp(2.2rem, 6vw, 3.4rem)">Tanner Johnson</h1>
+      <p class="mono reveal" data-delay="2" style="color: var(--muted); font-size: 0.9rem">
+        systems architect &amp; vibe coder
+      </p>
+      <div class="reveal" data-delay="2" style="display:flex; gap:0.6rem; justify-content:center; margin-top:1.4rem; flex-wrap:wrap">
+        {socials.map((s) => (
+          <a class="filter" href={s.url} target="_blank" rel="noopener" style="text-decoration:none">{s.name}</a>
+        ))}
+      </div>
+    </header>
+
+    <section class="link-group reveal" aria-label="Projects">
+      <h2 style="text-align:center">★ Projects</h2>
+      <a class="link-row" href="https://noveladaptations.com" target="_blank" rel="noopener">
+        <span class="link-name">Novel Adaptations</span>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+      <a class="link-row" href="https://ourfamilybrain.com" target="_blank" rel="noopener">
+        <span class="link-name">Our Family Brain</span>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+      <a class="link-row" href="https://pit.tannerwj.com" target="_blank" rel="noopener">
+        <span class="link-name">The Pit</span>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+      <a class="link-row" href="https://sweats.lol" target="_blank" rel="noopener">
+        <span class="link-name">Sweats — daily comic</span>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+      <a class="link-row" href="/projects">
+        <span class="link-name">All projects →</span>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    {linkGroups.map((group) => (
+      <section class="link-group reveal" aria-label={group.title}>
+        <h2 style="text-align:center">{group.title}</h2>
+        {group.items.map((item) => (
+          <a class="link-row" href={item.url} target="_blank" rel="noopener sponsored">
+            <span class="link-name">{item.name}</span>
+            {item.perk && <span class="perk">{item.perk}</span>}
+            <span class="go" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </section>
+    ))}
+
+    <p class="mono reveal" style="font-size:0.75rem; color:var(--faint); text-align:center; padding-bottom:4rem">
+      // some links are referrals — they support the site at no extra cost
+    </p>
+  </div>
+</Base>
