@@ -23,8 +23,7 @@ export type Category =
   | "game"
   | "experiment"
   | "site"
-  | "client"
-  | "oss";
+  | "client";
 
 export interface Project {
   name: string;
@@ -45,7 +44,6 @@ export const CATEGORIES: { id: Category | "all"; label: string }[] = [
   { id: "game", label: "Games" },
   { id: "experiment", label: "Experiments" },
   { id: "site", label: "Sites" },
-  { id: "oss", label: "Open source" },
   { id: "client", label: "Client work" },
 ];
 
@@ -209,46 +207,6 @@ export const projects: Project[] = [
     category: "site",
     tags: ["Review"],
     status: "live",
-  },
-
-  // ——— Open source ———
-  {
-    name: "hardcover-mcp",
-    url: "https://github.com/tannerwj/hardcover-mcp",
-    repo: "tannerwj/hardcover-mcp",
-    description: "MCP server for the Hardcover GraphQL API.",
-    category: "oss",
-    tags: ["MCP", "Books"],
-    status: "live",
-  },
-  {
-    name: "audible-mcp",
-    url: "https://github.com/tannerwj/audible-mcp",
-    repo: "tannerwj/audible-mcp",
-    description: "MCP server for authenticated Audible read workflows.",
-    category: "oss",
-    tags: ["MCP", "Audiobooks"],
-    status: "live",
-  },
-  {
-    name: "prime-radiant",
-    url: "https://github.com/tannerwj/prime-radiant",
-    repo: "tannerwj/prime-radiant",
-    description:
-      "Personal knowledge vault — semantic search, wikilink graphs, MCP-native.",
-    category: "oss",
-    tags: ["MCP", "Knowledge"],
-    status: "active",
-  },
-  {
-    name: "SwiftOOT",
-    url: "https://github.com/tannerwj/SwiftOOT",
-    repo: "tannerwj/SwiftOOT",
-    description:
-      "Native macOS reimplementation of Zelda: OOT in Swift and Metal. A curiosity piece.",
-    category: "oss",
-    tags: ["Swift", "Metal", "Fun"],
-    status: "archived",
   },
 
   // ——— Client work ———

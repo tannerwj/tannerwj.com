@@ -13,11 +13,8 @@ const oneLine = (p: Project) => {
 
 export const GET: APIRoute = () => {
   const featured = projects.filter((p) => p.featured);
-  const oss = projects.filter((p) => p.category === "oss");
   const clients = projects.filter((p) => p.category === "client");
-  const more = projects.filter(
-    (p) => !p.featured && p.category !== "oss" && p.category !== "client"
-  );
+  const more = projects.filter((p) => !p.featured && p.category !== "client");
 
   const lines = [
     "# tannerwj.com",
@@ -47,14 +44,6 @@ export const GET: APIRoute = () => {
     "### More",
     "",
     ...more.map(oneLine),
-    "",
-    "### Open source",
-    "",
-    ...oss.map((p) => {
-      const repo = p.repo ? `https://github.com/${p.repo}` : p.url;
-      const first = p.description.split(/(?<=[.!?])\s/)[0] ?? p.description;
-      return `- **${p.name}** — ${repo} — ${first}`;
-    }),
     "",
     "### Client work",
     "",
