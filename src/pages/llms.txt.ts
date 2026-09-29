@@ -54,7 +54,6 @@ export const GET: APIRoute = () => {
     "- GitHub: https://github.com/tannerwj",
     "- X: https://x.com/tannerwj",
     "- LinkedIn: https://www.linkedin.com/in/tannerwj/",
-    "- Goodreads: https://goodreads.com/tannerwj",
     "",
   ];
 

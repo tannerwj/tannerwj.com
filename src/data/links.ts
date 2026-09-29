@@ -144,5 +144,4 @@ export const socials: Social[] = [
   { name: "GitHub", url: "https://github.com/tannerwj", handle: "@tannerwj" },
   { name: "X", url: "https://x.com/tannerwj", handle: "@tannerwj" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/tannerwj/", handle: "tannerwj" },
-  { name: "Goodreads", url: "https://goodreads.com/tannerwj", handle: "tannerwj" },
 ];
