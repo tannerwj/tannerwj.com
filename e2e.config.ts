@@ -4,7 +4,8 @@ import { web } from '@e2e-dev/web';
 export default {
   targets: [
     {
-      engine: web(),
+      name: 'chromium',
+      engine: web({ connect: { cdpEndpoint: () => 'http://127.0.0.1:9222' } }),
       app: { url: 'https://tannerwj.com' },
     },
   ],

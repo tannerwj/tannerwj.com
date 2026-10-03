@@ -19,7 +19,7 @@ test('terminal answers help', async ({ app, screen }) => {
 test('terminal answers whoami', async ({ app, screen }) => {
   await app.open('/');
   await runCommand(screen, 'whoami');
-  await expect(screen.getByText('principal engineer', { exact: false })).toBeVisible();
+  await expect(screen.getByText('principal engineer', { exact: false }).first()).toBeVisible();
 });
 
 test('terminal reports unknown commands', async ({ app, screen }) => {

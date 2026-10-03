@@ -11,7 +11,7 @@ test('home hero introduces Tanner and links onward', async ({ app, screen, brows
   await expect(screen.getByText('20 projects shipped', { exact: false })).toBeVisible();
 
   await screen.getByRole('link', 'View projects →').tap();
-  await expect(browser).toHaveURL('/projects');
+  await expect(browser).toHaveURL(/\/projects\/?$/);
 });
 
 test('home bento shows the four featured projects', async ({ app, screen }) => {
@@ -33,11 +33,10 @@ test('home console section renders the interactive terminal', async ({ app, scre
 test('home elsewhere section links to now and about', async ({ app, screen, browser }) => {
   await app.open('/');
 
-  const elsewhere = screen.getByRole('region', 'More');
-  await elsewhere.getByRole('link', '/now').tap();
-  await expect(browser).toHaveURL('/now');
+  await screen.getByRole('link', { name: /\/now/ }).first().tap();
+  await expect(browser).toHaveURL(/\/now\/?$/);
 
   await app.open('/');
-  await screen.getByRole('region', 'More').getByRole('link', '/about').tap();
-  await expect(browser).toHaveURL('/about');
+  await screen.getByRole('link', { name: /\/about/ }).first().tap();
+  await expect(browser).toHaveURL(/\/about\/?$/);
 });

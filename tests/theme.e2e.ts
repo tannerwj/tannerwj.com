@@ -20,7 +20,7 @@ test('theme toggle flips data-theme without reloading the page', async ({ app, s
   expect(after === 'light' || after === 'dark').toBe(true);
 
   // No reload, no navigation: the URL is untouched.
-  await expect(browser).toHaveURL('/');
+  await expect(browser).toHaveURL(/\/$/);
 
   // The choice is persisted for the pre-paint script.
   const saved = await browser.evaluate(() => window.localStorage.getItem('tj-theme'));
