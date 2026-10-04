@@ -24,8 +24,8 @@ export const linkGroups: LinkGroup[] = [
         name: "Muse",
         url: "https://muse.ai",
         blurb:
-          "The AI assistant I run my life on — inbox, calendar, projects, all of it. Sign up at muse.ai, then enter my code L3NXFM in Settings \u2192 Redeem token (mobile, within 48 hours of joining) or Settings \u2192 General \u2192 Usage \u2192 Redeem invite code (web) so I get the referral credit.",
-        perk: "Invite code: L3NXFM",
+          "My AI assistant. Sign up at muse.ai, then enter code L3NXFM in Settings \u2192 Redeem token (mobile, within 48 hours of joining) or Settings \u2192 General \u2192 Usage \u2192 Redeem invite code (web).",
+        perk: "Get a billion free tokens",
       },
     ],
   },
