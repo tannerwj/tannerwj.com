@@ -18,6 +18,18 @@ export interface LinkGroup {
 
 export const linkGroups: LinkGroup[] = [
   {
+    title: "AI",
+    items: [
+      {
+        name: "Muse",
+        url: "https://muse.ai",
+        blurb:
+          "The AI assistant I run my life on — inbox, calendar, projects, all of it. Sign up at muse.ai, then enter my code L3NXFM in Settings \u2192 Redeem token (mobile, within 48 hours of joining) or Settings \u2192 General \u2192 Usage \u2192 Redeem invite code (web) so I get the referral credit.",
+        perk: "Invite code: L3NXFM",
+      },
+    ],
+  },
+  {
     title: "Finance & Investing",
     items: [
       {
@@ -108,7 +120,7 @@ export const linkGroups: LinkGroup[] = [
     items: [
       {
         name: "Tesla",
-        url: "http://ts.la/tanner57678",
+        url: "https://ts.la/tanner57678",
         blurb: "Electric vehicles and sustainable energy.",
         perk: "Get 3 months of free Full Self-Driving",
       },
