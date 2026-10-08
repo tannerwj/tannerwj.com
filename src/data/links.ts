@@ -102,6 +102,12 @@ export const linkGroups: LinkGroup[] = [
         blurb: "Voice-to-text AI that writes as you speak. Dictate anywhere on your Mac with natural, accurate transcription.",
         perk: "Get a free month of Pro",
       },
+      {
+        name: "Quick Quack",
+        url: "https://refer.quickquack.com/tannerjohnson",
+        blurb: "Unlimited car wash memberships with free vacuums.",
+        perk: "Get 60% off the first month",
+      },
     ],
   },
   {
