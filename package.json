@@ -5,7 +5,7 @@
     "@fontsource-variable/space-grotesk": "^5.2.5",
     "astro": "^5.13.0"
   },
-  "description": "tannerwj.com \u2014 personal site of Tanner Johnson. Astro 5, static, deployed to Cloudflare Pages.",
+  "description": "tannerwj.com — personal site of Tanner Johnson. Astro 5, static, deployed to Cloudflare Pages.",
   "engines": {
     "node": ">=18.17.1"
   },

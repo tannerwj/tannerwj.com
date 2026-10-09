@@ -176,5 +176,5 @@ dist/
 # yarn.lock
 # pnpm-lock.yaml
 
-# e2e runner output
+# e2e test output
 .e2e/

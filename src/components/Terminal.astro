@@ -5,7 +5,10 @@
 <div class="terminal reveal" id="tj-terminal">
   <div class="terminal-bar" aria-hidden="true">
     <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
-    <span class="t-title">tanner@tannerwj.com — zsh</span>
+    <!-- Title text is set via JS (initTerminal) so Cloudflare's email
+         obfuscation doesn't rewrite this decorative string into a
+         /cdn-cgi/l/email-protection link. -->
+    <span class="t-title" id="term-title"></span>
   </div>
   <div class="terminal-body" id="term-body" role="log" aria-label="Interactive terminal">
     <p class="line"><span class="prompt">➜</span> <span class="dim">~</span> ./hello.sh</p>
@@ -34,6 +37,11 @@
     if (!root || !body || !input || root.dataset.bound) return;
     root.dataset.bound = "1";
 
+    // Decorative window title. Set from JS (split string) so Cloudflare's
+    // email obfuscation leaves the static HTML alone.
+    const title = document.getElementById("term-title");
+    if (title) title.textContent = "tanner@" + "tannerwj.com — zsh";
+
     const responses = {
       help: [
         "commands: whoami · projects · now · theme · links · clear",
@@ -44,7 +52,7 @@
         "flagships: noveladaptations.com · ourfamilybrain.com · pit.tannerwj.com · health.tannerwj.com",
         "full index → /projects",
       ],
-      now: ["building ai-native apps. running the pit. see /now for the rest."],
+      now: ["building ai-native apps. running the pit. that's the whole update."],
       links: ["friends? → /links has everything. you're welcome."],
       theme: ["theme toggled. you're welcome."],
       sudo: ["nice try."],
