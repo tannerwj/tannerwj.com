@@ -1,8 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
 import { linkGroups } from "../data/links";
+import { site } from "../data/site";
 
 // Link-in-bio: the page friends get texted. Big tap targets, full-width rows.
+// Each row gets a stable #link-<slug> id so any link can be shared directly;
+// opening /links#link-<slug> scrolls to the row and highlights it.
+const slugify = (s: string) =>
+  "link-" + s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 ---
 
 <Base
@@ -23,14 +28,35 @@ import { linkGroups } from "../data/links";
     {linkGroups.map((group) => (
       <section class="link-group" aria-label={group.title}>
         <h2>{group.title}</h2>
-        {group.items.map((item) => (
-          <a class="link-row" href={item.url} target="_blank" rel="noopener sponsored">
-            <span class="link-name">{item.name}</span>
-            <span class="link-blurb">{item.blurb}</span>
-            {item.perk && <span class="perk">{item.perk}</span>}
-            <span class="go" aria-hidden="true">&rarr;</span>
-          </a>
-        ))}
+        {group.items.map((item) => {
+          const slug = slugify(item.name);
+          const share = `${site.url}/links#${slug}`;
+          return (
+            <div class="link-row" id={slug}>
+              <a class="link-main" href={item.url} target="_blank" rel="noopener sponsored">
+                <span class="link-name">{item.name}</span>
+                <span class="link-blurb">{item.blurb}</span>
+                {item.perk && <span class="perk">{item.perk}</span>}
+                <span class="go" aria-hidden="true">&rarr;</span>
+              </a>
+              <button
+                class="copy-link"
+                type="button"
+                data-share={share}
+                title="Copy link to this"
+                aria-label={`Copy share link for ${item.name}`}
+              >
+                <svg class="ic-link" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+                <svg class="ic-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </button>
+            </div>
+          );
+        })}
       </section>
     ))}
 
@@ -39,4 +65,56 @@ import { linkGroups } from "../data/links";
       no extra cost to you.
     </p>
   </div>
+
+  <script>
+    function initLinks() {
+      // Per-row copy buttons: copy the deep link for that row.
+      document.querySelectorAll(".copy-link").forEach((btn) => {
+        if (btn.dataset.bound) return;
+        btn.dataset.bound = "1";
+        btn.addEventListener("click", async () => {
+          const url = btn.dataset.share || "";
+          let ok = false;
+          try {
+            await navigator.clipboard.writeText(url);
+            ok = true;
+          } catch (e) {
+            try {
+              const ta = document.createElement("textarea");
+              ta.value = url;
+              ta.style.position = "fixed";
+              ta.style.opacity = "0";
+              document.body.appendChild(ta);
+              ta.select();
+              ok = document.execCommand("copy");
+              ta.remove();
+            } catch (e2) { /* clipboard unavailable */ }
+          }
+          if (ok) {
+            btn.classList.add("done");
+            setTimeout(() => btn.classList.remove("done"), 1600);
+          }
+        });
+      });
+
+      // Deep links: /links#link-<slug> scrolls to the row and highlights it.
+      const id = location.hash ? location.hash.slice(1) : "";
+      if (id) {
+        const el = document.getElementById(id);
+        if (el && el.classList.contains("link-row")) {
+          const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+          requestAnimationFrame(() => {
+            el.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "center" });
+            el.classList.remove("flash");
+            void el.offsetWidth; // restart the animation if re-triggered
+            el.classList.add("flash");
+            setTimeout(() => el.classList.remove("flash"), 2600);
+          });
+        }
+      }
+    }
+
+    document.addEventListener("astro:page-load", initLinks);
+    initLinks();
+  </script>
 </Base>

@@ -501,13 +501,13 @@ main { padding-top: 4.6rem; min-height: 70vh; }
 .link-row {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.6rem;
   padding: 1.15rem 1.3rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--surface);
-  text-decoration: none;
   margin-bottom: 0.7rem;
+  scroll-margin-top: 5.5rem;
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .link-row:hover {
@@ -515,6 +515,51 @@ main { padding-top: 4.6rem; min-height: 70vh; }
   border-color: var(--accent);
   box-shadow: var(--shadow);
 }
+.link-main {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+/* Deep-link highlight: opening /links#link-<slug> flashes the row. */
+.link-row.flash {
+  border-color: var(--accent);
+  animation: row-flash 2.4s ease;
+}
+@keyframes row-flash {
+  0%, 100% { box-shadow: var(--shadow); }
+  25%, 65% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 55%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .link-row.flash { animation: none; }
+}
+/* Per-row share button: copies the row's deep link. */
+.copy-link {
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--faint);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.copy-link:hover {
+  color: var(--accent-ink);
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+.copy-link .ic-check { display: none; }
+.copy-link.done { color: var(--accent-ink); border-color: var(--accent); }
+.copy-link.done .ic-check { display: block; }
+.copy-link.done .ic-link { display: none; }
 .link-row .link-name {
   font-weight: 600;
   font-size: 1.05rem;
@@ -676,11 +721,13 @@ main { padding-top: 4.6rem; min-height: 70vh; }
   .bento { grid-template-columns: 1fr; }
   .bento .span-3, .bento .span-2, .bento .span-6 { grid-column: span 1; }
   .card { min-height: 0; padding: 1.4rem; }
-  .link-row { flex-wrap: wrap; gap: 0.5rem 1rem; position: relative; padding-right: 3rem; }
+  .link-row { position: relative; padding-right: 3rem; }
+  .link-main { flex-wrap: wrap; gap: 0.5rem 1rem; }
   .link-row .link-name { min-width: 0; width: 100%; }
   .link-row .link-blurb { width: 100%; }
   .link-row .go { position: absolute; right: 1.2rem; top: 1.25rem; }
   .link-row .perk { white-space: normal; }
+  .copy-link { position: absolute; right: 1rem; bottom: 1rem; }
   .hero-sub { gap: 1rem; }
 }
 

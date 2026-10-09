@@ -72,12 +72,20 @@ const personSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <script is:inline>
-      // Apply saved theme before first paint — no flash, no reload.
-      try {
-        const saved = localStorage.getItem("tj-theme");
-        const theme = saved || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-        document.documentElement.setAttribute("data-theme", theme);
-      } catch (e) {}
+      // Theme: the header picker is the only switch. The choice is stored in
+      // localStorage (default dark) and re-applied after every ClientRouter
+      // swap, because the swap copies the fresh page's <html data-theme="dark">
+      // over the live document. Runs before first paint — no flash.
+      function applySavedTheme() {
+        try {
+          var saved = localStorage.getItem("tj-theme");
+          document.documentElement.setAttribute("data-theme", saved === "light" ? "light" : "dark");
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      }
+      applySavedTheme();
+      document.addEventListener("astro:after-swap", applySavedTheme);
     </script>
 
     <ClientRouter />
