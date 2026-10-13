@@ -721,13 +721,13 @@ main { padding-top: 4.6rem; min-height: 70vh; }
   .bento { grid-template-columns: 1fr; }
   .bento .span-3, .bento .span-2, .bento .span-6 { grid-column: span 1; }
   .card { min-height: 0; padding: 1.4rem; }
-  .link-row { position: relative; padding-right: 3rem; }
-  .link-main { flex-wrap: wrap; gap: 0.5rem 1rem; }
-  .link-row .link-name { min-width: 0; width: 100%; }
-  .link-row .link-blurb { width: 100%; }
-  .link-row .go { position: absolute; right: 1.2rem; top: 1.25rem; }
-  .link-row .perk { white-space: normal; }
-  .copy-link { position: absolute; right: 1rem; bottom: 1rem; }
+  .link-row { position: relative; padding: 1rem 1.1rem; padding-right: 3rem; }
+  .link-main { flex-direction: column; align-items: stretch; gap: 0.3rem; }
+  .link-row .link-name { min-width: 0; font-size: 1.02rem; }
+  .link-row .link-blurb { flex: none; width: 100%; font-size: 0.9rem; line-height: 1.45; }
+  .link-row .go { position: absolute; right: 1.1rem; top: 1.05rem; }
+  .link-row .perk { white-space: normal; align-self: flex-start; margin-top: 0.4rem; font-size: 0.72rem; padding: 0.3rem 0.65rem; }
+  .copy-link { position: absolute; right: 0.8rem; bottom: 0.8rem; }
   .hero-sub { gap: 1rem; }
 }
 
