@@ -1,19 +1,19 @@
 ---
 import Base from "../layouts/Base.astro";
-import { linkGroups } from "../data/links";
+import { linkGroups, linkSlug } from "../data/links";
 import { site } from "../data/site";
 
 // Link-in-bio: the page friends get texted. Big tap targets, full-width rows.
-// Each row gets a stable #link-<slug> id so any link can be shared directly;
-// opening /links#link-<slug> scrolls to the row and highlights it.
-const slugify = (s: string) =>
-  "link-" + s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+// Each row gets a stable #link-<slug> anchor, and the copy button shares the
+// row's /s/<slug> page (own OG preview) which bounces back to that anchor.
 ---
 
 <Base
   title="Links"
   description="Tanner Johnson's link-in-bio — referral links and services he actually recommends, most with a perk for you too."
   path="/links"
+  ogImage="/og/links.png"
+  ogTitle="Tanner's Links — stuff I actually recommend"
 >
   <div class="wrap">
     <header class="page-head">
@@ -29,10 +29,11 @@ const slugify = (s: string) =>
       <section class="link-group" aria-label={group.title}>
         <h2>{group.title}</h2>
         {group.items.map((item) => {
-          const slug = slugify(item.name);
-          const share = `${site.url}/links#${slug}`;
+          const slug = linkSlug(item.name);
+          const anchor = `link-${slug}`;
+          const share = `${site.url}/s/${slug}`;
           return (
-            <div class="link-row" id={slug}>
+            <div class="link-row" id={anchor}>
               <a class="link-main" href={item.url} target="_blank" rel="noopener sponsored">
                 <span class="link-name">{item.name}</span>
                 <span class="link-blurb">{item.blurb}</span>

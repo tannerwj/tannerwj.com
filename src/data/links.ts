@@ -16,6 +16,14 @@ export interface LinkGroup {
   items: LinkItem[];
 }
 
+/** Stable per-link slug: row anchors are #link-<slug>, share pages are /s/<slug>. */
+export function linkSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export const linkGroups: LinkGroup[] = [
   {
     title: "AI",

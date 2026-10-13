@@ -1,0 +1,76 @@
+---
+import { existsSync } from "node:fs";
+import { linkGroups, linkSlug, type LinkItem } from "../../data/links";
+import { site } from "../../data/site";
+
+// Share pages: one per referral link, generated from the link catalog.
+// Preview scrapers (iMessage, X, Slack) never see #fragments, so each link
+// gets a real URL — /s/<slug> — carrying its own OG title, description, and
+// image. Humans are bounced straight to the row on /links.
+export function getStaticPaths() {
+  return linkGroups.flatMap((group) =>
+    group.items.map((item) => {
+      const slug = linkSlug(item.name);
+      const hasImage = existsSync(
+        new URL(`../../../public/og/${slug}.png`, import.meta.url),
+      );
+      return {
+        params: { slug },
+        props: { item, slug, ogImage: hasImage ? `/og/${slug}.png` : "/og/links.png" },
+      };
+    }),
+  );
+}
+
+interface Props {
+  item: LinkItem;
+  slug: string;
+  ogImage: string;
+}
+
+const { item, slug, ogImage } = Astro.props;
+const target = `/links#link-${slug}`;
+const shareUrl = `${site.url}/s/${slug}`;
+const imageUrl = new URL(ogImage, site.url).href;
+const ogTitleText = `${item.name} — Tanner Johnson recommends`;
+const ogDescription = item.perk ? `${item.perk}. ${item.blurb}` : item.blurb;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{ogTitleText}</title>
+    <meta name="description" content={ogDescription} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href={`${site.url}/links`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="tannerwj.com" />
+    <meta property="og:title" content={ogTitleText} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={shareUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@tannerwj" />
+    <meta name="twitter:title" content={ogTitleText} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <script is:inline define:vars={{ target }}>
+      location.replace(target);
+    </script>
+  </head>
+  <body
+    style="background:#0c0c0e;color:#f2f0ea;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0"
+  >
+    <p>
+      Taking you to <a href={target} style="color:#9aa7ff">{item.name} on Tanner's links page</a>…
+    </p>
+  </body>
+</html>
