@@ -1,0 +1,12 @@
+#!/bin/sh
+# Quality gates (build + e2e API checks against a local preview of the
+# build) before every commit. Installed by `npm install` (the prepare
+# script points git at .githooks). Prints the report only when a gate
+# fails. Skip once with `git commit --no-verify` only for a reviewed
+# reason. There is no CI workflow by design: gates run here, not in
+# GitHub Actions.
+if ! out=$(npm run --silent check 2>&1); then
+  printf '%s\n' "$out"
+  echo "pre-commit: quality gates failed (npm run check)" >&2
+  exit 1
+fi

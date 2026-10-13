@@ -46,6 +46,6 @@ test('saved theme applies on first load (no flash of wrong theme)', { requires: 
     localStorage.setItem('tj-theme', 'dark');
     return true;
   });
-  await app.open('/now');
+  await app.open('/projects');
   expect(await readTheme(browser)).toBe('dark');
 });

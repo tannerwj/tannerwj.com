@@ -7,15 +7,14 @@ import { BASE_URL } from './support/base-url';
 // Node-platform tests: fetch the live site directly (the `api` target has no
 // engine, so there is no `app.baseUrl` here).
 const PAGES = [
-  { path: '/', title: 'Tanner Johnson — Principal Engineer' },
-  { path: '/projects', title: 'Projects — Tanner Johnson' },
-  { path: '/now', title: 'Now — Tanner Johnson' },
-  { path: '/about', title: 'About — Tanner Johnson' },
-  { path: '/links', title: 'Links' },
+  { path: '/', title: 'Tanner Johnson — Principal Engineer', og: 'og.png' },
+  { path: '/projects', title: 'Projects — Tanner Johnson', og: 'og.png' },
+  { path: '/about', title: 'About — Tanner Johnson', og: 'og.png' },
+  { path: '/links', title: 'Links', og: 'og/links.png' },
 ];
 
 describe('meta', { platforms: ['node'] }, () => {
-  for (const { path, title } of PAGES) {
+  for (const { path, title, og } of PAGES) {
     test(`meta tags on ${path}`, async () => {
       const res = await fetch(new URL(path, BASE_URL));
       expect(res.status).toBe(200);
@@ -25,7 +24,7 @@ describe('meta', { platforms: ['node'] }, () => {
       expect(html).toContain(`<link rel="canonical" href="https://tannerwj.com${path === '/' ? '/' : path}"`);
       expect(html).toContain('property="og:title"');
       expect(html).toContain('property="og:image"');
-      expect(html).toContain('tannerwj.com/og.png');
+      expect(html).toContain(`tannerwj.com/${og}`);
     });
   }
 

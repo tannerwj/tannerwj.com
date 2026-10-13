@@ -9,9 +9,6 @@ test('header nav reaches every section', { requires: ['browser'] }, async ({ app
   await expect(browser).toHaveURL('/projects');
   await expect(screen.getByRole('heading', { level: 1 })).toContainText('Projects');
 
-  await nav.getByRole('link', 'Now').tap();
-  await expect(browser).toHaveURL('/now');
-
   await nav.getByRole('link', 'About').tap();
   await expect(browser).toHaveURL('/about');
 
@@ -44,8 +41,8 @@ test('mobile menu opens and its links work', { requires: ['browser'] }, async ({
   await expect(menu).toBeVisible();
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
 
-  await menu.getByRole('link', '/now').tap();
-  await expect(browser).toHaveURL('/now');
+  await menu.getByRole('link', '/links').tap();
+  await expect(browser).toHaveURL('/links');
 });
 
 test('current page is marked in the nav', { requires: ['browser'] }, async ({ app, screen }) => {

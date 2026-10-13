@@ -5,7 +5,7 @@ import { BASE_URL } from './support/base-url';
 // Content rules for tannerwj.com: no placeholder text anywhere, and the
 // standing exclusions (no ward-clerk or Pokémon mentions, nothing more
 // specific than Utah) hold on every page.
-const PAGES = ['/', '/projects', '/now', '/about', '/links'];
+const PAGES = ['/', '/projects', '/about', '/links'];
 
 const BANNED = [
   'lorem ipsum',

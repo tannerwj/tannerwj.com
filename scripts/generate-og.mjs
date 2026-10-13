@@ -116,7 +116,7 @@ const browser = await chromium.launch({
   executablePath: process.env.CHROME_PATH || "/opt/meta-chromium/chrome",
   args: ["--no-sandbox", "--disable-gpu", "--force-color-profile=srgb"],
 });
-const pg = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 2 });
+const pg = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 for (const job of jobs) {
   writeFileSync("/tmp/og-template.html", job.html);
   await pg.goto("file:///tmp/og-template.html", { waitUntil: "networkidle" });

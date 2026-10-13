@@ -5,7 +5,7 @@ import { BASE_URL } from './support/base-url';
 // Crawl every page and follow every internal link, image, and stylesheet:
 // nothing internal may 404. External links are validated for shape only
 // (referral hosts may block bots, so fetching them would be flaky).
-const SEED_PAGES = ['/', '/projects', '/now', '/about', '/links'];
+const SEED_PAGES = ['/', '/projects', '/about', '/links'];
 
 function internalRefs(html: string): string[] {
   const refs = new Set<string>();

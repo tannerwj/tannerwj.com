@@ -6,7 +6,6 @@ import { expect } from 'e2e';
 const routes = [
   { path: '/', title: 'Tanner Johnson — Principal Engineer', h1: 'Tanner' },
   { path: '/projects', title: 'Projects — Tanner Johnson', h1: 'Projects' },
-  { path: '/now', title: 'Now — Tanner Johnson', h1: 'Now' },
   { path: '/about', title: 'About — Tanner Johnson', h1: 'About' },
   { path: '/links', title: 'Links', h1: 'Links' },
 ];

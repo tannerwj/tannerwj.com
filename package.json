@@ -5,7 +5,7 @@
     "@fontsource-variable/space-grotesk": "^5.2.5",
     "astro": "^5.13.0"
   },
-  "description": "tannerwj.com — personal site of Tanner Johnson. Astro 5, static, deployed to Cloudflare Pages.",
+  "description": "tannerwj.com \u2014 personal site of Tanner Johnson. Astro 5, static, deployed to Cloudflare Pages.",
   "engines": {
     "node": ">=18.17.1"
   },
@@ -14,7 +14,9 @@
     "build": "astro build",
     "dev": "astro dev",
     "preview": "astro preview",
-    "test:e2e": "e2e run"
+    "test:e2e": "e2e run",
+    "check": "astro build && node scripts/check-e2e.mjs",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "type": "module",
   "version": "2.0.0",
