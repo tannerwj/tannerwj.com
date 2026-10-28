@@ -35,6 +35,12 @@ export const linkGroups: LinkGroup[] = [
           "My AI assistant. Sign up at muse.ai, then enter code L3NXFM in Settings \u2192 Redeem token (mobile, within 48 hours of joining) or Settings \u2192 General \u2192 Usage \u2192 Redeem invite code (web).",
         perk: "Get a billion free tokens",
       },
+      {
+        name: "Grok Bot",
+        url: "https://grok.com/refer/bot?code=J4BEFTZZW3MF",
+        blurb: "xAI's agent — hand off real work and everyday tasks, come back to them done.",
+        perk: "Get 2 free weeks",
+      },
     ],
   },
   {
