@@ -64,12 +64,22 @@ export const projects: Project[] = [
     name: "Our Family Brain",
     url: "https://ourfamilybrain.com",
     description:
-      "A shared hub where each family member's AI assistant joins the same family — shared boards, lists, memory, and messaging.",
+      "A shared hub where each family member's AI assistant joins the same family — boards, lists, meals, chores, calendars, files, and a knowledge base that people and their agents both work in.",
     category: "app",
     tags: ["AI", "Family"],
     featured: true,
     status: "active",
     cover: "/covers/our-family-brain.webp",
+  },
+  {
+    name: "Can My Agent",
+    url: "https://canmyagent.com",
+    description:
+      "The prompt directory for the agent era. Every prompt is a short link your AI agent can fetch and run — browse what people have taught their agents to do, and share your own.",
+    category: "app",
+    tags: ["AI", "Prompts"],
+    featured: true,
+    status: "active",
   },
   {
     name: "The Pit",
@@ -97,7 +107,7 @@ export const projects: Project[] = [
   {
     name: "Sweats",
     url: "https://sweats.lol",
-    description: "A daily comic of the absurd. New strip every day.",
+    description: "A comic of the absurd.",
     category: "app",
     tags: ["Comics", "Fun"],
     status: "active",
@@ -129,11 +139,13 @@ export const projects: Project[] = [
     status: "live",
   },
   {
-    name: "RSS Reader",
-    url: "https://rss.tannerwj.com",
-    description: "A personal feed reader and aggregator.",
+    name: "Johnson ID",
+    url: "https://github.com/tannerwj/edge-idp",
+    repo: "tannerwj/edge-idp",
+    description:
+      "A personal identity provider — passkey-only OIDC sign-in for my apps, built on Cloudflare Workers. Open source, so anyone can deploy their own.",
     category: "tool",
-    tags: ["Reading"],
+    tags: ["Identity", "Security", "Open source"],
     status: "live",
   },
   {
@@ -142,7 +154,6 @@ export const projects: Project[] = [
     description: "Personal health, training, and peptide notes.",
     category: "tool",
     tags: ["Health"],
-    featured: true,
     status: "live",
   },
 
@@ -153,6 +164,33 @@ export const projects: Project[] = [
     description: "Online multiplayer Mafia party game.",
     category: "game",
     tags: ["Multiplayer", "Fun"],
+    status: "live",
+  },
+  {
+    name: "Poké Chess",
+    url: "https://poke-chess.tannerwj.com",
+    description:
+      "Not literally chess — a Pokémon autobattler. Draft a team, merge three to evolve, and battle through campaigns or live lobbies with up to 32 players.",
+    category: "game",
+    tags: ["Multiplayer", "Strategy"],
+    status: "live",
+  },
+  {
+    name: "Poké Warden",
+    url: "https://poke-warden.tannerwj.com",
+    description:
+      "A Pokémon tower defense in the spirit of the old Warcraft III Element TD maps — three expedition modes, endless and daily runs, cloud saves.",
+    category: "game",
+    tags: ["Tower defense", "Fun"],
+    status: "live",
+  },
+  {
+    name: "Poké Crush",
+    url: "https://poke-crush.tannerwj.com",
+    description:
+      "A match-3 where matches hit with real type effectiveness. A 24-level saga, a daily board, and an endless garden — no lives, no energy timers, no shop.",
+    category: "game",
+    tags: ["Match-3", "Fun"],
     status: "live",
   },
 
@@ -180,6 +218,15 @@ export const projects: Project[] = [
     description: "Peptides I'm trying or have tried. A personal log.",
     category: "experiment",
     tags: ["Health"],
+    status: "live",
+  },
+  {
+    name: "Palm Reader",
+    url: "https://palm.tannerwj.com",
+    description:
+      "An AI palm reader — snap a photo of your hand and receive a reading of cosmic significance, plus tarot, birth charts, and daily fortunes. Scientifically unproven, spiritually confident.",
+    category: "experiment",
+    tags: ["AI", "Fun"],
     status: "live",
   },
   {
@@ -213,7 +260,7 @@ export const projects: Project[] = [
   {
     name: "Peach Cleaning",
     url: "https://peach.cleaning",
-    description: "Professional cleaning services website.",
+    description: "Peachy Clean Windows — professional window cleaning service in Utah.",
     category: "client",
     tags: ["Web"],
     status: "live",

@@ -3,15 +3,15 @@ import { expect } from 'e2e';
 import { BASE_URL } from './support/base-url';
 
 // Content rules for tannerwj.com: no placeholder text anywhere, and the
-// standing exclusions (no ward-clerk or Pokémon mentions, nothing more
-// specific than Utah) hold on every page.
+// standing exclusions hold on every page (no ward-clerk mention, nothing
+// more specific than Utah). Pokémon is allowed since 2026-11-09: the Poké
+// games are listed products at Tanner's direction — the exclusion was
+// about stock-hunting/collecting content, not his shipped games.
 const PAGES = ['/', '/projects', '/about', '/links'];
 
 const BANNED = [
   'lorem ipsum',
   'ward clerk',
-  'pokémon',
-  'pokemon',
   'todo:',
   'fixme',
   'loremipsum',
