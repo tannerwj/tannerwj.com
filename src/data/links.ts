@@ -66,7 +66,7 @@ export const linkGroups: LinkGroup[] = [
       },
       {
         name: "SoFi",
-        url: "https://www.sofi.com/invite/money?gcp=deb88fc1-cea1-44a6-b72c-b46b1d2ac452",
+        url: "https://www.sofi.com/invite/money?gcp=c4d8b01e-33d1-471c-9609-0d3cd09a5aa4&isAliasGcp=false&siid=b377dbd7-465c-4b71-b573-ce1c5d47f482",
         blurb: "All-in-one financial platform — banking, investing, loans, and credit cards.",
         perk: "Get $25 when you sign up",
       },
