@@ -47,6 +47,12 @@ export const linkGroups: LinkGroup[] = [
     title: "Finance & Investing",
     items: [
       {
+        name: "Capital One",
+        url: "https://i.capitalone.com/Jo7mAdiLu",
+        blurb: "My referral for Capital One cards — pick a card like Quicksilver or Savor and start with a real welcome bonus.",
+        perk: "Earn $300 when you spend $500 in the first 3 months",
+      },
+      {
         name: "Coinbase",
         url: "https://advanced.coinbase.com/join/AQ6U5AX",
         blurb: "The most trusted crypto exchange. Buy, sell, and manage 100+ cryptocurrencies.",
